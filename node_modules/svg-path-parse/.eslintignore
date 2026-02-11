@@ -1,0 +1,10 @@
+node_modules/
+.vscode/
+.nyc_output/
+git_stats/
+yarn-offline/
+docs/
+test.js
+jest.config.js
+__mock__/
+./lib/matrix.js
