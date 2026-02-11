@@ -10,6 +10,7 @@ Immersion is a React-based presentation framework designed for creating beautifu
 - **LaTeX Support**: Render LaTeX formulas with high quality using MathJax (via a local server).
 - **Animations**: Smooth transitions between slides and morphing of LaTeX equations.
 - **Visual Editor**: (Partial support) Tools for editing animations.
+- **Tools**: Includes `create-presentation` CLI and templates.
 
 ## Prerequisites
 
@@ -56,33 +57,39 @@ npm install
 npm run dev
 ```
 
-Then open your browser to the URL shown (usually `http://localhost:5173`).
+Then open your browser to the URL shown (usually `http://localhost:5173` or similar).
 
 ## Usage
 
 Create a new presentation in your React app:
 
 ```tsx
-import { Presentation, Slide } from 'immersion-presentation';
-import 'immersion-presentation/dist/index.css';
+import { themes, Presentation } from "immersion-presentation";
+import "immersion-presentation/dist/index.css";
+
+const { Slide } = themes.principiae;
 
 function App() {
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
-      <Presentation>
-        <Slide>
-          <h1>Slide 1</h1>
-          <p>Content...</p>
-        </Slide>
-        <Slide>
-          <h1>Slide 2</h1>
-          <p>More content...</p>
-        </Slide>
-      </Presentation>
-    </div>
+    <Presentation>
+      <Slide header="Intro">
+        <h1>Welcome to Immersion</h1>
+      </Slide>
+      <Slide header="Math">
+        <p>
+          $ \int_a^b f(x) dx = F(b) - F(a) $
+        </p>
+      </Slide>
+    </Presentation>
   );
 }
 ```
+
+## Tools
+
+The `tools/` directory contains:
+- `create-presentation`: A CLI tool for scaffolding new presentations.
+- `template`: A template project structure.
 
 ## License
 
