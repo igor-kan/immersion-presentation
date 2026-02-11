@@ -1,4 +1,4 @@
-import './tailwind.min.css'
+// import './tailwind.min.css'
 import './index.css'
 import * as modern from './themes/modern'
 import * as principiae from './themes/principiae'

@@ -1,61 +1,89 @@
-# Immersion
+# Immersion Presentation Framework
 
-> **Resurrected & Unfinished**
-> This repository is a reconstruction of the [Immersion](https://github.com/immersion-presentation/) presentation framework by the late Gilles Castel. The original source code was incomplete, so this version has been recovered from transpiled code and source maps.
+> **Resurrected**: This repository is a restoration of the unfinished "Immersion" presentation framework created by the late Gilles Castel.
 
-Immersion is a React-based presentation framework that rivals Beamer. It allows for high-quality mathematical presentations with animated LaTeX transitions.
+Immersion is a React-based presentation framework designed for creating beautiful, mathematical presentations with fluid animations and first-class LaTeX support.
 
 ## Features
 
-- **LaTeX Support**: Write LaTeX directly in your slides.
-- **Animations**: animated transitions between LaTeX formulas (morphing).
 - **React-based**: Build slides using React components.
-- **Theming**: Customizable themes (Modern, Principiae).
+- **LaTeX Support**: Render LaTeX formulas with high quality using MathJax (via a local server).
+- **Animations**: Smooth transitions between slides and morphing of LaTeX equations.
+- **Visual Editor**: (Partial support) Tools for editing animations.
 
-## Installation
+## Prerequisites
+
+- Node.js (v14+ recommended)
+- `npm` or `yarn`
+
+## Getting Started
+
+### 1. Install Dependencies
+
+Install the library dependencies:
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
+
+### 2. Build the Library
+
+Build the Immersion library:
+
+```bash
+npm run build
+```
+
+### 3. Start the LaTeX Server
+
+Immersion requires a backend server to render LaTeX to SVG.
+
+```bash
+cd server
+npm install
+node index.js
+```
+
+The server runs on `http://localhost:3001`.
+
+### 4. Run the Example Presentation
+
+Open a new terminal and navigate to the example directory:
+
+```bash
+cd example
+npm install
+npm run dev
+```
+
+Then open your browser to the URL shown (usually `http://localhost:5173`).
 
 ## Usage
 
-This project consists of two parts:
-1.  **The Library**: The core React components (in `src/`).
-2.  **The LaTeX Server**: A local server required to render LaTeX to SVG for animations.
+Create a new presentation in your React app:
 
-### 1. Start the LaTeX Server
-
-The framework requires a backend to compile LaTeX snippets into SVGs.
-
-(Instructions to be added - Work in Progress: A `server` directory will be provided)
-
-### 2. Create a Presentation
-
-Import `Presentation` and `Slide` from the library.
-
-```jsx
+```tsx
 import { Presentation, Slide } from 'immersion-presentation';
+import 'immersion-presentation/dist/index.css';
 
 function App() {
   return (
-    <Presentation>
-      <Slide>
-        <h1>Hello World</h1>
-        <p>This is Immersion.</p>
-      </Slide>
-    </Presentation>
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <Presentation>
+        <Slide>
+          <h1>Slide 1</h1>
+          <p>Content...</p>
+        </Slide>
+        <Slide>
+          <h1>Slide 2</h1>
+          <p>More content...</p>
+        </Slide>
+      </Presentation>
+    </div>
   );
 }
 ```
 
-## Status
+## License
 
-- [x] Frontend source code recovered.
-- [ ] Backend server implementation (In Progress).
-- [ ] Example presentation.
-
-## Credits
-
-Created by [Gilles Castel](https://castel.dev).
-Recovered and documented by the open source community.
+MIT
